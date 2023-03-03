@@ -12,15 +12,16 @@
 
         <link rel="stylesheet" href="/proj_laravel/example-app/public/css/styles.css">
     </head>
-    <body >
+    <body class="bg-dark">
         <header>
             <nav class="navbar navbar-expand-lg nabvar-light bg-secondary"  >
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/proj_laravel/example-app/public/" class="navbar-brand">
                     <img src="/proj_laravel/example-app/public/img/laravel.svg" alt="Balflex" id="logo"></a>
+                    
                     <ul class="navbar-nav" id="nav1">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Eventos</a>
+                            <a href="/proj_laravel/example-app/public/" class="nav-link">Eventos</a>
                         </li>
                         <li class="nav-item">
                             <a href="/proj_laravel/example-app/public/events/create" class="nav-link">Criar Eventos</a>
@@ -35,11 +36,17 @@
                 </div>
             </nav>
         </header>
+        <div class="container-fluid">
+            <div class="row">
+                @if(session('msg'))
+                <p class="msg">{{session('msg')}}</p>
+                @endif
+            </div>
+        </div>
         @yield('content')
 
-
      <footer>
-        <p>Adão Lima @ BALFLEX  &copy; 2023</p>
+        <p>Todos os direitos reservados &copy; BALFLEX - 2023</p>
      </footer>
      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

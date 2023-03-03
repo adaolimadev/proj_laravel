@@ -12,14 +12,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 use App\Http\Controllers\EventController;
 
+//Estabelece as rotas definidas na classe Controleer
 Route::get('/',[EventController::class, 'index']);
+
 
 Route::get('/events/create',[EventController::class, 'create']);
 
+//Envia metodo post
+Route::post('/events',[EventController::class, 'store']);
 
-
-Route::get('/produtos/{id}', function ($id) {
-    return view('products', ['id' => $id]);
-});
