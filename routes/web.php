@@ -20,7 +20,18 @@ Route::get('/',[EventController::class, 'index']);
 
 
 Route::get('/events/create',[EventController::class, 'create']);
+Route::get('/events/{id}',[EventController::class, 'show']);
 
-//Envia metodo post
-Route::post('/events',[EventController::class, 'store']);
+//Envia metodo post (Aqui no caso esta utilizando o metodo de nomear as rotas name('events.store')
+Route::post('/events',[EventController::class, 'store'])->name('events.store');
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

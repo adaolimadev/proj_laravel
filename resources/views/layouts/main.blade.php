@@ -10,21 +10,21 @@
 
         <title>@yield('tittle')</title>
 
-        <link rel="stylesheet" href="/proj_laravel/example-app/public/css/styles.css">
+        <link rel="stylesheet" href="{{url('css/styles.css')}}">
     </head>
     <body class="bg-dark">
         <header>
             <nav class="navbar navbar-expand-lg nabvar-light bg-secondary"  >
                 <div class="collapse navbar-collapse" id="navbar">
-                    <a href="/proj_laravel/example-app/public/" class="navbar-brand">
-                    <img src="/proj_laravel/example-app/public/img/laravel.svg" alt="Balflex" id="logo"></a>
+                    <a href="/public/" class="navbar-brand">
+                    <img src="/public/img/laravel.svg" alt="Balflex" id="logo"></a>
                     
                     <ul class="navbar-nav" id="nav1">
                         <li class="nav-item">
-                            <a href="/proj_laravel/example-app/public/" class="nav-link">Eventos</a>
+                            <a href="/public/" class="nav-link">Eventos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/proj_laravel/example-app/public/events/create" class="nav-link">Criar Eventos</a>
+                            <a href="/public/events/create" class="nav-link">Criar Evento</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">Entrar</a>
