@@ -176,3 +176,8 @@ img#img-card{
 #items-list li{
     display: flex;
 }
+
+#container-list form{
+    display: inline-block !important; 
+}
+

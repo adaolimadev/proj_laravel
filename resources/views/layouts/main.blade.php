@@ -16,23 +16,37 @@
         <header>
             <nav class="navbar navbar-expand-lg nabvar-light bg-secondary"  >
                 <div class="collapse navbar-collapse" id="navbar">
-                    <a href="/public/" class="navbar-brand">
-                    <img src="/public/img/laravel.svg" alt="Balflex" id="logo"></a>
+                    <a href="{{url('/')}}" class="navbar-brand">
+                    <img src="{{url('/img/laravel.svg')}}" alt="Balflex" id="logo"></a>
                     
                     <ul class="navbar-nav" id="nav1">
                         <li class="nav-item">
-                            <a href="/public/" class="nav-link">Eventos</a>
+                            <a href="{{url('/')}}" class="nav-link">Home</a>
+                        </li>
+                        @auth
+                        <li class="nav-item">
+                            <a href="{{url('/events/create')}}" class="nav-link">Criar Evento</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/public/events/create" class="nav-link">Criar Evento</a>
+                            <a href="{{url('/events/myevents')}}" class="nav-link">Meus eventos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Entrar</a>
+                            <form action="{{url('/logout')}}" method="POST">
+                                @csrf
+                                <a href="{{url('/logout')}}" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+                            </form>
+                        </li>
+                        @endauth
+                        @guest
+                        <li class="nav-item">
+                            <a href="{{url('/login')}}" class="nav-link">Entrar</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Cadastrar</a>
+                            <a href="{{url('/register')}}" class="nav-link">Cadastrar</a>
                         </li>
-                </ul>
+                        @endguest
+
+                    </ul>
                 </div>
             </nav>
         </header>

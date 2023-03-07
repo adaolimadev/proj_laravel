@@ -26,6 +26,11 @@ class EventController extends Controller
         //retorna passando por parametro o array de eventos preenchido:
         return view('welcome', ['events'=>$events, 'search' => $search]);
     }
+
+    public function getEvents(){
+        $events = Event::all();
+        return view('events.myevents', ['events'=>$events]);
+    }
     
 
     //Quando a rota create é chamada retorna a view (form)
@@ -83,5 +88,25 @@ class EventController extends Controller
 
     }
 
+    //Método para excluir um evento do BD
+    public function destroy($id){
+       
+
+        Event::findOrFail($id)->delete();
+
+        return redirect('/events/myevents')->with('msg', 'Evento excluído com sucesso!');
+    }
+
+    public function edit($id){
+        $event = Event::findOrFail($id);
+
+        return view('events.edit', ['event' => $event]);
+    }
+
+    public function update (Request $req){
+        Event::findOrFail($req->id)->update($req->all());
+
+        return redirect('/events/myevents')->with('msg', 'Evento editado com sucesso!');
+    }
 
 }
